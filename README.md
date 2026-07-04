@@ -14,7 +14,6 @@ Tech Stack
 • Python
 • Streamlit
 • LangChain
-• LangGraph
 • OpenAI GPT
 • PDF Processing
 
