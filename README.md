@@ -1,27 +1,70 @@
-CareerPilot AI
+# 🚀 CareerPilot AI
 
-An AI-powered career assistant that helps users:
+An AI-powered career assistant that helps job seekers improve resumes,
+analyze ATS compatibility, prepare for interviews, generate cover letters,
+and receive personalized career guidance using Large Language Models.
 
-• Resume Review
-• ATS Score Analysis
-• Resume vs Job Matching
-• AI Interview Question Generation
-• Cover Letter Generation
-• Career Chat Assistant
+--------------------------------------------------
 
-Tech Stack
+✨ Features
 
-• Python
-• Streamlit
-• LangChain
-• OpenAI GPT
-• PDF Processing
+📄 Resume Review
 
-Features
+⭐ ATS Score
 
-✔ AI Agent Architecture
-✔ Resume Parsing
-✔ ATS Analysis
-✔ Job Matching
-✔ Interactive Chat
-✔ Downloadable Reports
+🎯 Job Match Analysis
+
+🎤 Interview Question Generator
+
+💼 AI Cover Letter Generator
+
+🤖 Career Assistant Chat
+
+--------------------------------------------------
+
+🛠 Tech Stack
+
+Python
+
+Streamlit
+
+LangChain
+
+Groq (Llama 3.3 70B)
+
+PyMuPDF
+
+dotenv
+
+--------------------------------------------------
+
+📂 Project Structure
+
+app.py
+
+services/
+
+tools/
+
+styles.py
+
+.streamlit/
+
+--------------------------------------------------
+
+🚀 Future Improvements
+
+LangGraph Workflow
+
+Multi-Agent Architecture
+
+Chat Memory
+
+Resume Version Comparison
+
+Job Recommendation Engine
+
+--------------------------------------------------
+
+Developed by
+Mayuka Patil
