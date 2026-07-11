@@ -11,7 +11,7 @@ from tools.cover_letter import cover_letter
 from tools.job_matcher import job_matcher
 
 from services.router import detect_intent
-from services.llm_service import ask_llm
+from agent.langgraph_workflow import career_graph
 
 
 # ==================================================
@@ -38,7 +38,16 @@ if "resume" not in st.session_state:
 if "assistant_reply" not in st.session_state:
     st.session_state["assistant_reply"] = ""
 
-#load_css()
+if "ats_score" not in st.session_state:
+    st.session_state["ats_score"] = "--"
+
+if "job_match" not in st.session_state:
+    st.session_state["job_match"] = "--"
+
+if "resume_review" not in st.session_state:
+    st.session_state["resume_review"] = "--"
+
+load_css()
 
 
 # ==================================================
@@ -66,7 +75,9 @@ with st.sidebar:
 
     st.markdown("# 🚀 CareerPilot AI")
 
-    st.caption("Your Personal AI Career Coach")
+    st.caption(
+    "AI Resume Analyzer • ATS Checker • Job Match • Interview Prep • Career Assistant"
+)
 
     st.divider()
 
@@ -113,40 +124,33 @@ st.caption("AI Resume Analyzer • ATS • Job Match • Interview Prep")
 # DASHBOARD
 # ==================================================
 
-st.markdown("## 📊 Dashboard")
+
+st.header("📊 Dashboard")
 
 c1, c2, c3 = st.columns(3)
 
 with c1:
-
-    st.markdown(f"""
-    <div class="glass">
-        <h4>⭐ ATS Score</h4>
-        <h1>{st.session_state["ats_score"]}</h1>
-        <p>Resume Performance</p>
-    </div>
-    """, unsafe_allow_html=True)
+    st.metric(
+        label="⭐ ATS Score",
+        value=st.session_state["ats_score"],
+        delta=None
+    )
 
 with c2:
-
-    st.markdown(f"""
-    <div class="glass">
-        <h4>🎯 Job Match</h4>
-        <h1>{st.session_state["job_match"]}</h1>
-        <p>Resume vs JD</p>
-    </div>
-    """, unsafe_allow_html=True)
+    st.metric(
+        label="🎯 Job Match",
+        value=st.session_state["job_match"],
+        delta=None
+    )
 
 with c3:
-
-    st.markdown(f"""
-    <div class="glass">
-        <h4>📄 Resume Review</h4>
-        <h1>{st.session_state["resume_score"]}</h1>
-        <p>AI Analysis</p>
-    </div>
-    """, unsafe_allow_html=True)
-
+    st.metric(
+        label="📄 Resume Review",
+        value=st.session_state["resume_review"],
+        delta=None
+    )
+#🎯 Job Match
+#📄 Resume Review
 
 st.write("")
 
@@ -155,6 +159,7 @@ st.write("")
 # FEATURES
 # ==================================================
 st.subheader("✨ Features")
+st.divider()
 
 c1,c2 = st.columns(2)
 
@@ -181,6 +186,7 @@ with c2:
 # ==================================================
 
 st.markdown("## ⚡ Quick Actions")
+st.divider()
 
 
 
@@ -326,7 +332,9 @@ Question:
 {question}
 """
 
-    answer = ask_llm(prompt)
+    result = career_graph.invoke({"question": prompt})
+
+    answer = result["answer"]
 
     # Save assistant message
     st.session_state["messages"].append({
@@ -448,7 +456,9 @@ User Question:
 {question}
 """
 
-            answer = ask_llm(prompt)
+            result = career_graph.invoke({"question": prompt})
+
+            answer = result["answer"]
 
         # Save assistant response
         st.session_state["messages"].append(
@@ -470,13 +480,6 @@ if "assistant_reply" in st.session_state:
     st.markdown("---")
 
 st.caption(
-    "🚀 CareerPilot AI • Built with Streamlit, LangChain, LangGraph & OpenAI | © 2026"
+    "🚀 CareerPilot AI • Built with Streamlit, LangChain, LangGraph & Groq | © 2026"
 )
 
-with st.spinner("🤖 AI is analyzing..."):
-
-    result = resume_feedback.invoke(
-        {"resume": st.session_state["resume"]}
-    )
-
-    st.success("✅ Analysis completed!")
