@@ -63,5 +63,31 @@ Future Improvements
 • Database integration
 --------------------------------------------------
 
+
+
+ Architecture
+ ---------------------------------------------------
+
+               User
+                │
+                ▼
+        Streamlit Interface
+                │
+                ▼
+       LangGraph Workflow
+                │
+      ┌─────────┼─────────┐
+      ▼         ▼         ▼
+ Resume      ATS      Interview
+Feedback    Checker   Generator
+      │         │         │
+      └─────────┼─────────┘
+                ▼
+          Groq Llama 3.3
+                │
+                ▼
+           AI Response
+
+
 Developed by
 Mayuka Patil
