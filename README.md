@@ -56,11 +56,16 @@ styles.py
 
 Future Improvements
 
-• Resume-to-job semantic matching
-• Multi-agent workflow expansion
-• Cloud deployment
-• Authentication
-• Database integration
+
+- Multi-agent workflow
+
+- Resume semantic search using RAG
+
+- User authentication
+
+- Cloud deployment
+
+- Database support
 --------------------------------------------------
 
 
@@ -113,6 +118,12 @@ Run the application
 ```bash
 streamlit run app.py
 ```
+
+
+## 📄 License
+
+This project is intended for educational and portfolio purposes.
+
 
 
 Developed by
