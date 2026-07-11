@@ -88,5 +88,32 @@ Groq Llama 3.3 70B
 ```
 
 
+## ⚙️ Installation
+
+Clone the repository
+
+```bash
+git clone https://github.com/MayukaPatil/AI-CareerPilot.git
+```
+
+Move into the project
+
+```bash
+cd AI-CareerPilot
+```
+
+Install dependencies
+
+```bash
+uv sync
+```
+
+Run the application
+
+```bash
+streamlit run app.py
+```
+
+
 Developed by
 Mayuka Patil
