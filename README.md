@@ -68,7 +68,7 @@ Future Improvements
  Architecture
  ---------------------------------------------------
 
-
+```text
 User
    │
    ▼
