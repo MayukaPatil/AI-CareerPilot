@@ -68,25 +68,24 @@ Future Improvements
  Architecture
  ---------------------------------------------------
 
-               User
-                │
-                ▼
-        Streamlit Interface
-                │
-                ▼
-       LangGraph Workflow
-                │
-      ┌─────────┼─────────┐
-      ▼         ▼         ▼
- Resume      ATS      Interview
-Feedback    Checker   Generator
-      │         │         │
-      └─────────┼─────────┘
-                ▼
-          Groq Llama 3.3
-                │
-                ▼
-           AI Response
+
+User
+   │
+   ▼
+Streamlit Interface
+   │
+   ▼
+LangGraph Workflow
+   │
+   ├── Resume Feedback
+   ├── ATS Checker
+   ├── Interview Generator
+   ├── Cover Letter Generator
+   └── Job Matcher
+   │
+   ▼
+Groq Llama 3.3 70B
+```
 
 
 Developed by
