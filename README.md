@@ -30,6 +30,8 @@ Streamlit
 
 LangChain
 
+LangGraph
+
 Groq (Llama 3.3 70B)
 
 PyMuPDF
@@ -52,18 +54,13 @@ styles.py
 
 --------------------------------------------------
 
-🚀 Future Improvements
+Future Improvements
 
-LangGraph Workflow
-
-Multi-Agent Architecture
-
-Chat Memory
-
-Resume Version Comparison
-
-Job Recommendation Engine
-
+• Resume-to-job semantic matching
+• Multi-agent workflow expansion
+• Cloud deployment
+• Authentication
+• Database integration
 --------------------------------------------------
 
 Developed by
